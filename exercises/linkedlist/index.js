@@ -111,9 +111,21 @@ class LinkedList {
   }
 
   forEach(fn) {
-    return function (...args) {
-      fn.apply(this, args);
-    };
+    let node = this.head;
+    while (node) {
+      fn(node);
+      node = node.next;
+    }
+  }
+
+  //We're telling JS how to iterate through this object using for  of loop
+  //Check out generators/iterators if this doesn't make sense
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
   }
 }
 
