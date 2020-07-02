@@ -29,39 +29,37 @@ describe('Node', () => {
   });
 });
 
-describe.skip('Tree', () => {
-  test('starts empty', () => {
-    const t = new Tree();
-    expect(t.root).toEqual(null);
+test('starts empty', () => {
+  const t = new Tree();
+  expect(t.root).toEqual(null);
+});
+
+test('Can traverse bf', () => {
+  const letters = [];
+  const t = new Tree();
+  t.root = new Node('a');
+  t.root.add('b');
+  t.root.add('c');
+  t.root.children[0].add('d');
+
+  t.traverseBF((node) => {
+    letters.push(node.data);
   });
 
-  test('Can traverse bf', () => {
-    const letters = [];
-    const t = new Tree();
-    t.root = new Node('a');
-    t.root.add('b');
-    t.root.add('c');
-    t.root.children[0].add('d');
+  expect(letters).toEqual(['a', 'b', 'c', 'd']);
+});
 
-    t.traverseBF(node => {
-      letters.push(node.data);
-    });
+test('Can traverse DF', () => {
+  const letters = [];
+  const t = new Tree();
+  t.root = new Node('a');
+  t.root.add('b');
+  t.root.add('d');
+  t.root.children[0].add('c');
 
-    expect(letters).toEqual(['a', 'b', 'c', 'd']);
+  t.traverseDF((node) => {
+    letters.push(node.data);
   });
 
-  test('Can traverse DF', () => {
-    const letters = [];
-    const t = new Tree();
-    t.root = new Node('a');
-    t.root.add('b');
-    t.root.add('d');
-    t.root.children[0].add('c');
-
-    t.traverseDF(node => {
-      letters.push(node.data);
-    });
-
-    expect(letters).toEqual(['a', 'b', 'c', 'd']);
-  });
+  expect(letters).toEqual(['a', 'b', 'c', 'd']);
 });
