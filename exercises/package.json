@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git add . && git commit -m \"Quick commit of exercises\" && git push master origin"
   },
   "jest": {
     "testEnvironment": "node"
