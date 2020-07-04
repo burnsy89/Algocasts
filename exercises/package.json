@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "commit": "git add . && git commit -m \"Quick commit of exercises\" && git push master origin"
+    "commit": "git add . && git commit -m \"Quick commit of exercises\" && git push origin master"
   },
   "jest": {
     "testEnvironment": "node"
